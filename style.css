@@ -1,0 +1,70 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    
+}
+
+h1{
+    text-shadow: 1px 1.6px 1px rgb(250, 250, 12);
+    text-align: center;
+    color: rgb(234, 81, 25);
+}
+
+a{
+    color: rgb(234, 81, 25);
+}
+
+.wrapper {
+    perspective: 2px; /* distância dos planos de fundo*/
+    overflow-x: hidden;
+    transform-style: preserve-3d; /*faz elementos filhos ficarem em 3d*/
+    height: 100vh  
+}
+
+.secao {
+    margin: 50px;
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    transform-style: inherit; /*para seguir as alterações do elemento pai no transform*/
+    transform: scale(1);
+}
+
+
+.secao::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -10px; /*proporçao do eixo z(profundidade)*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transform: translateZ(-1px)scale(1.5);
+}
+
+.conteudo {
+    position: absolute;
+    top: 25%;
+    width: 80%;
+    padding: 20px 0;
+    background-color: rgba(164, 166, 169, 0.8);
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    font-size: 22px;
+    text-align: justify;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow: 3px 3px 3px black;
+}
+
+.fundo1::before {
+    background-image: url(img/img-1.png);
+}
+
+.fundo2::before {
+    background-image: url(img/img-2.png);
+}
